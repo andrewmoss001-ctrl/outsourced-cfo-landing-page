@@ -1,0 +1,223 @@
+/* src/App.css */
+@font-face {
+  font-family: 'Cambon Demi';
+  src: url('/Cambon-Demi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/inter.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html { @apply scroll-smooth; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: oklch(0.3114 0.0055 301.21);
+  background: #E6E6E2;
+}
+.inter {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.cambon {
+  font-family: 'Cambon Demi', serif;
+}
+.font-extrabold {
+    font-weight: 900;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- HERO SECTION (Mobile First) --- */
+.hero-section {
+  padding: 60px 0 40px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+}
+
+.hero-section .container {
+  display: flex;
+  flex-direction: column; /* Stack on mobile */
+  gap: 40px;
+}
+#stats2 label {
+  font-weight: bold;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .hero-section .container {
+    flex-direction: row; /* Side-by-side on desktop */
+    align-items: center;
+  }
+  .hero-content { flex: 1; }
+  .hero-visual { flex: 1; }
+}
+
+.hero-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .hero-title { font-size: 3rem; }
+}
+.highlight { color: oklch(0.6 0.1914 22.75); } /* Accent */
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+}
+
+/* --- CTA BUTTONS (Touch friendly) --- */
+.cta-group {
+  display: flex;
+  flex-direction: column; /* Stack on mobile for easy thumb taps */
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .cta-group {
+    flex-direction: row; /* Side by side on tablet/desktop */
+    align-items: center;
+  }
+}
+
+.primary-cta-button {
+  background: oklch(0.6 0.1914 22.75);
+  color: #0f172a;
+  font-weight: 700;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 54px; /* Easy touch target */
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .primary-cta-button { width: auto; }
+}
+.primary-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px oklch(0.6 0.1914 22.75 / 0.4);
+}
+
+.secondary-cta-link {
+  color: #94a3b8;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  padding: 10px 0; /* Easy to tap */
+}
+
+/* --- TRUST BAR --- */
+.trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+  border-top: 1px solid #334155;
+  padding-top: 20px;
+  color: #94a3b8;
+}
+.trust-bar strong { color: white; font-size: 1.2rem; }
+
+/* --- STATS SECTION --- */
+.stats-section {
+  padding: 60px 0;
+  background: white;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+  gap: 30px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: block;
+}
+.stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* --- FINAL CTA / FORM (Mobile optimized) --- */
+.final-cta-section {
+  padding: 60px 0;
+  background: oklch(0.9238 0.0053 106.5);
+  text-align: center;
+}
+
+.lead-form {
+  max-width: 600px;
+  margin: 30px auto 0;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 16px; /* Prevents iOS zoom */
+  width: 100%;
+  background: white;
+}
+.form-grid .full-width {
+  grid-column: 1 / -1;
+}
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.privacy-note {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 16px;
+}
+
+.success-message {
+  background: #dcfce7;
+  padding: 30px;
+  border-radius: 12px;
+  color: #166534;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Reusable full-width utility */
+.full-width { width: 100%; }
+
