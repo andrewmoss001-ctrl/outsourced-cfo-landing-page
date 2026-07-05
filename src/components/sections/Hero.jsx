@@ -13,7 +13,7 @@ const Hero = () => {
             {/* Logo Container for Alignment */}
             <div className="flex justify-center md:justify-start">
               <img
-                src="/ofco-outsourced-cfo-logo-dark.svg"
+                src="/outsourced-cfo-landing-page/ofco-logo.svg"
                 alt="OFCO logo"
                 className="h-14 w-auto mb-6 md:h-16"
               />
